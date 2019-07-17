@@ -2,10 +2,62 @@
 <html lang="en">
 <head>
     <title>Exercise 3</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+<style>
+    select {
+        padding: 5px 20px;
+    }
+
+    table th, table td {
+        padding: 5px;
+    }
+</style>
 <body>
-    <center>
-        <h1>Daftar Planet</h1>
-    </center>
+    <div class="container">
+        <center>
+            <br>
+            <h1>Daftar Planet</h1>
+            <br>
+            <table class="table" border="1" id="planetData">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Rotation Period</th>
+                        <th>Orbital Period</th>
+                        <th>Diameter</th>
+                        <th>Climate</th>
+                        <th>Gravity</th>
+                        <th>Population</th>
+                    </tr>
+                </thead>
+            </table>
+        </center>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let planetData = document.getElementById("planetData");
+        
+        let elem = "<tbody>";
+
+        for (let i = 0; i <= 9; i++) {
+            let object = planetsObj[i];
+            // console.log(object);
+            elem += "<tr>";
+            elem += "<td>"+ object.name +"</td>";
+            elem += "<td>"+ object.rotation_period +"</td>";
+            elem += "<td>"+ object.orbital_period +"</td>";
+            elem += "<td>"+ object.diameter +"</td>";
+            elem += "<td>"+ object.climate +"</td>";
+            elem += "<td>"+ object.gravity +"</td>";
+            elem += "<td>"+ object.population +"</td>";
+            elem += "</tr>";
+        }
+
+        elem += "</tbody>";
+
+        planetData.innerHTML += elem;
+    </script>
 </body>
 </html>
